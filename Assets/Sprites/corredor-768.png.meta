@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 30b9a4b4cbf5b484c9ffe6b5ba503c1b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: corredor-768_0
+    21300002: corredor-768_2
+    21300004: corredor-768_3
+    21300006: corredor-768_6
+    21300008: corredor-768_7
+    21300010: corredor-768_10
+    21300012: corredor-768_11
+    21300014: corredor-768_12
+    21300016: corredor-768_13
+    21300018: corredor-768_14
+    21300020: corredor-768_15
+    21300022: corredor-768_16
+    21300024: corredor-768_17
+    21300026: corredor-768_18
+    21300028: corredor-768_19
+    21300030: corredor-768_20
+    21300032: corredor-768_21
+    21300034: corredor-768_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: corredor-768_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 526
+        width: 248
+        height: 234
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_2
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 519
+        width: 202
+        height: 239
+      alignment: 9
+      pivot: {x: .632427275, y: .419721663}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_3
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 518
+        width: 179
+        height: 206
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_6
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 524
+        width: 221
+        height: 179
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_7
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 515
+        width: 238
+        height: 170
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_10
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 266
+        width: 170
+        height: 231
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_11
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 257
+        width: 173
+        height: 255
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_12
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 260
+        width: 220
+        height: 233
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_13
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 260
+        width: 219
+        height: 240
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_14
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 260
+        width: 206
+        height: 206
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_15
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 260
+        width: 158
+        height: 231
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_16
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 7
+        width: 174
+        height: 243
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_17
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 5
+        width: 235
+        height: 227
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_18
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 8
+        width: 204
+        height: 227
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_19
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 9
+        width: 169
+        height: 226
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_20
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 7
+        width: 151
+        height: 243
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_21
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 8
+        width: 237
+        height: 231
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_17
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 522
+        width: 227
+        height: 218
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
