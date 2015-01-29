@@ -20,6 +20,7 @@ TextureImporter:
     21300030: corredor-768_20
     21300032: corredor-768_21
     21300034: corredor-768_17
+    21300036: corredor-768_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,20 +67,30 @@ TextureImporter:
         serializedVersion: 2
         x: 8
         y: 526
-        width: 248
-        height: 234
+        width: 243
+        height: 236
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: corredor-768_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 519
+        width: 236
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_2
       rect:
         serializedVersion: 2
-        x: 790
-        y: 519
+        x: 794
+        y: 521
         width: 202
-        height: 239
-      alignment: 9
-      pivot: {x: .632427275, y: .419721663}
+        height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_3
       rect:
@@ -89,7 +100,7 @@ TextureImporter:
         width: 179
         height: 206
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_6
       rect:
@@ -109,25 +120,25 @@ TextureImporter:
         width: 238
         height: 170
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_10
       rect:
         serializedVersion: 2
-        x: 44
+        x: 38
         y: 266
-        width: 170
+        width: 176
         height: 231
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_11
       rect:
         serializedVersion: 2
         x: 301
         y: 257
-        width: 173
-        height: 255
+        width: 176
+        height: 256
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,7 +150,7 @@ TextureImporter:
         width: 220
         height: 233
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_13
       rect:
@@ -149,7 +160,7 @@ TextureImporter:
         width: 219
         height: 240
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_14
       rect:
@@ -159,7 +170,7 @@ TextureImporter:
         width: 206
         height: 206
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_15
       rect:
@@ -169,7 +180,7 @@ TextureImporter:
         width: 158
         height: 231
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: corredor-768_16
       rect:
@@ -230,16 +241,6 @@ TextureImporter:
         height: 231
       alignment: 7
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: corredor-768_17
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 522
-        width: 227
-        height: 218
-      alignment: 7
-      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
