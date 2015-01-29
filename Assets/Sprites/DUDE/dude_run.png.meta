@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 35abdfe59ba066346b9bac15b23f3336
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: dude_run_0
+    21300002: dude_run_1
+    21300004: dude_run_2
+    21300006: dude_run_3
+    21300008: dude_run_4
+    21300010: dude_run_5
+    21300012: dude_run_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: dude_run_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 3
+        width: 157
+        height: 230
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 4
+        width: 173
+        height: 243
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_2
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 3
+        width: 229
+        height: 226
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_3
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 5
+        width: 206
+        height: 228
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_4
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 6
+        width: 169
+        height: 227
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_5
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 5
+        width: 152
+        height: 242
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dude_run_6
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 5
+        width: 237
+        height: 231
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
