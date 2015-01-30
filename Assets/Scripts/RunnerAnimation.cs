@@ -7,10 +7,12 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	public event Landing Land;
 	
 	Animator animator;
+	RunnerController runner;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
+		runner = GetComponent<RunnerController>();
 		
 		TouchInputListener.Instance.OneTouch += Jump;
 		TouchInputListener.Instance.OneTouch += Slide;
@@ -19,13 +21,14 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	void Jump () {
 		/**DEVELOPMENT**/ 
 		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
+		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
 		/**DEVELOPMENT**/ 
 		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
+		if(runner.IsGrounded)
 			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
 				animator.SetBool("Slide",true);
 
@@ -43,11 +46,11 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	
 	void Update(){
 	
-		animator.SetFloat("VSpeed",GetComponent<RunnerController>().moveDirection.y);
-		if(RunnerController.Instance.isGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
+		animator.SetFloat("VSpeed",rigidbody2D.velocity.y);
+		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
 			animator.SetTrigger("Land");
 			animator.ResetTrigger("Jump");
-			Land();
+			//Land();
 		 }
 		 
 		/**DEVELOPMENT**/ 
