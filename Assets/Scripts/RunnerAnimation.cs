@@ -8,6 +8,8 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	public event StateMachine Dead;
 	public event StateMachine Restart;
 	
+	[HideInInspector()]
+	public bool dead;
 	Animator animator;
 	RunnerController runner;
 
@@ -40,6 +42,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
 			Dead();
 			animator.SetTrigger("Die");
+			dead = true;
 		}
 	}
 	
@@ -47,6 +50,8 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
 			Restart();
 			animator.SetTrigger("Reset");
+			animator.ResetTrigger("Jump");
+			dead = false;
 		}
 	}
 	
