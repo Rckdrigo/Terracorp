@@ -12,9 +12,14 @@ public abstract class Character2D : MonoBehaviour {
 	protected Vector2 _midFrontVector;
 	protected bool facingRight = true;
 	public LayerMask _groundLayer;
+	protected Vector2 initialPosition;
 	
 	[HideInInspector()]
 	public bool IsGrounded;
+	
+	protected void Start(){
+		initialPosition = transform.position;
+	}
 	
 	protected void _flipH(){
 		facingRight = !facingRight;
@@ -30,7 +35,7 @@ public abstract class Character2D : MonoBehaviour {
 	protected void Update (){
 		_width =  renderer.bounds.size.x;
 		_height =  renderer.bounds.size.y;
-		
+	
 		_resizeBoxCollider();
 		IsGrounded = isOnGround();
 	}
@@ -58,7 +63,7 @@ public abstract class Character2D : MonoBehaviour {
 	}
 	
 	protected bool isOnGround(){
-		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.2f, _groundLayer);
+		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.1f, _groundLayer);
 		foreach(Collider2D ground in hits) 
 			if(ground != null) 
 				return true;

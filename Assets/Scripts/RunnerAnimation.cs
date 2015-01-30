@@ -3,8 +3,10 @@ using System.Collections;
 
 public class RunnerAnimation : Singleton<RunnerAnimation> {
 
-	public delegate void Landing();
-	public event Landing Land;
+	public delegate void StateMachine();
+	public event StateMachine Land;
+	public event StateMachine Dead;
+	public event StateMachine Restart;
 	
 	Animator animator;
 	RunnerController runner;
@@ -35,23 +37,38 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Die(){
-		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie"))
+		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
+			Dead();
 			animator.SetTrigger("Die");
+		}
 	}
 	
 	void Reset(){
-		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie"))
+		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
+			Restart();
 			animator.SetTrigger("Reset");
+		}
+	}
+	
+	void Landing(){
+		animator.SetTrigger("Land");
+		animator.ResetTrigger("Jump");
+	}
+	
+	void Crashing(){
+		animator.SetTrigger("Land");
+		animator.ResetTrigger("Die");
 	}
 	
 	void Update(){
-	
 		animator.SetFloat("VSpeed",rigidbody2D.velocity.y);
 		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
-			animator.SetTrigger("Land");
-			animator.ResetTrigger("Jump");
-			//Land();
+			Landing();
 		 }
+		 
+		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && rigidbody2D.velocity.y <0){
+			Crashing();
+		}
 		 
 		/**DEVELOPMENT**/ 
 		if(Input.GetKeyDown(KeyCode.UpArrow))
