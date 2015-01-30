@@ -25,13 +25,18 @@ public class RunnerController : Singleton<RunnerController> {
 			moveDirection.y -= gravity * Time.deltaTime;
 			
 		controller.Move(moveDirection * Time.deltaTime);
+		
+		
+		if(Input.GetKeyDown(KeyCode.UpArrow)){
+			Jump();
+		}
 	}
 	
-	void Jump(){
-		if (controller.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3){
+	public void Jump(){
+		/**DEVELOPMENT**/ 
+		//if (controller.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
+		if(controller.isGrounded)
 			moveDirection.y = jumpSpeed;
-			print ("Jumping");
-		}
 	}
 	
 	void Land(){

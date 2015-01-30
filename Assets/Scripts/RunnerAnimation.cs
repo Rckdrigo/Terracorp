@@ -17,37 +17,47 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
-		if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
+		/**DEVELOPMENT**/ 
+		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
 			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
-		if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
+		/**DEVELOPMENT**/ 
+		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
 			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
-				animator.SetTrigger("Slide");
+				animator.SetBool("Slide",true);
 
 	}
 	
-	void StandUp(){
-		animator.ResetTrigger("Slide");
-	}
-	
-	public void Die(){
-		print("Hola");
+	void Die(){
 		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie"))
 			animator.SetTrigger("Die");
-		else
+	}
+	
+	void Reset(){
+		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie"))
 			animator.SetTrigger("Reset");
-			
 	}
 	
 	void Update(){
+	
 		animator.SetFloat("VSpeed",GetComponent<RunnerController>().moveDirection.y);
 		if(RunnerController.Instance.isGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
 			animator.SetTrigger("Land");
 			animator.ResetTrigger("Jump");
 			Land();
 		 }
+		 
+		/**DEVELOPMENT**/ 
+		if(Input.GetKeyDown(KeyCode.UpArrow))
+			Jump();
+		if(Input.GetKeyDown(KeyCode.D))
+			Die();
+		if(Input.GetKeyDown(KeyCode.R))
+			Reset();
+		animator.SetBool("Slide",Input.GetKey(KeyCode.DownArrow));
+		/****/
 	}
 }

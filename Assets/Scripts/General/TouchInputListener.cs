@@ -5,6 +5,7 @@ public class TouchInputListener : Singleton<TouchInputListener> {
 
 	public delegate void TouchListener();
 	public event TouchListener OneTouch;
+	public event TouchListener OneClick;
 	
 	public Touch singleTouch;
 	public Touch secondTouch;
