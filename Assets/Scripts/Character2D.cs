@@ -63,7 +63,7 @@ public abstract class Character2D : MonoBehaviour {
 	}
 	
 	protected bool isOnGround(){
-		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.1f, _groundLayer);
+		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.15f, _groundLayer);
 		foreach(Collider2D ground in hits) 
 			if(ground != null) 
 				return true;
