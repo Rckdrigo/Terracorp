@@ -4,12 +4,15 @@ using System.Collections;
 public class RunnerAnimation : Singleton<RunnerAnimation> {
 
 	public delegate void StateMachine();
-	public event StateMachine Land;
+//	public event StateMachine Land;
 	public event StateMachine Dead;
 	public event StateMachine Restart;
 	
 	[HideInInspector()]
 	public bool dead;
+	[HideInInspector()]
+	public bool sliding;
+	
 	Animator animator;
 	RunnerController runner;
 
@@ -18,24 +21,34 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		animator = GetComponent<Animator>();
 		runner = GetComponent<RunnerController>();
 		
-		TouchInputListener.Instance.OneTouch += Jump;
+		TouchInputListener.Instance.OneTouchEnter += Jump;
 		TouchInputListener.Instance.OneTouch += Slide;
+		TouchInputListener.Instance.OneTouchQuit += StandUp;
+		
+		sliding = false;
+		dead = false;
 	}
 	
 	void Jump () {
-		/**DEVELOPMENT**/ 
-		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
+//#if !UNITY_EDITOR
+		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
+//#endif
+		if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
-		/**DEVELOPMENT**/ 
-		//if (RunnerController.Instance.isGrounded && TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
-		if(runner.IsGrounded)
-			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
-				animator.SetBool("Slide",true);
-
+//#if !UNITY_EDITOR
+		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
+//#endif
+			if(runner.IsGrounded)
+				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
+					sliding = true;
+	}
+	
+	void StandUp(){
+		if(sliding)
+			sliding = false;
 	}
 	
 	void Die(){
@@ -75,14 +88,14 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 			Crashing();
 		}
 		 
-		/**DEVELOPMENT**/ 
+#if UNITY_EDITOR
 		if(Input.GetKeyDown(KeyCode.UpArrow))
 			Jump();
 		if(Input.GetKeyDown(KeyCode.D))
 			Die();
 		if(Input.GetKeyDown(KeyCode.R))
 			Reset();
-		animator.SetBool("Slide",Input.GetKey(KeyCode.DownArrow));
-		/****/
+		animator.SetBool("Slide",sliding);
+#endif
 	}
 }
