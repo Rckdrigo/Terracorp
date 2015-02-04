@@ -30,17 +30,13 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
-//#if !UNITY_EDITOR
-		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-//#endif
+		//if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
 		if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
-//#if !UNITY_EDITOR
-		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
-//#endif
+		//if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
 			if(runner.IsGrounded)
 				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
 					sliding = true;
@@ -95,7 +91,8 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 			Die();
 		if(Input.GetKeyDown(KeyCode.R))
 			Reset();
-		animator.SetBool("Slide",sliding);
+		sliding = Input.GetKey(KeyCode.DownArrow);
 #endif
+		animator.SetBool("Slide",sliding);
 	}
 }

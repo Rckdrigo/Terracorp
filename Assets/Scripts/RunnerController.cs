@@ -30,9 +30,7 @@ public class RunnerController : Character2D {
 	}
 	
 	public void Jump(){
-//#if !UNITY_EDITOR
-		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)		
-//#endif
+		//if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)		
 		if( isOnGround() && !RunnerAnimation.Instance.dead)
 			rigidbody2D.AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
 		
