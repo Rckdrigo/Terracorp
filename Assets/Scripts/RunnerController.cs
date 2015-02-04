@@ -5,9 +5,9 @@ public class RunnerController : Character2D {
 
 	public float jumpSpeed = 10.0F;
 	
-	void Start(){
+	new void Start(){
 		base.Start();
-		TouchInputListener.Instance.OneTouch += Jump;
+		TouchInputListener.Instance.OneTouchEnter += Jump;
 		RunnerAnimation.Instance.Dead += Die;
 		RunnerAnimation.Instance.Restart += Restart;
 	}
@@ -26,15 +26,16 @@ public class RunnerController : Character2D {
 	
 	void Die(){
 		if( isOnGround())
-			rigidbody2D.AddForce((Vector2.up *3 + Vector2.right/2).normalized*3,ForceMode2D.Impulse);
+			rigidbody2D.AddForce((Vector2.up *3 + Vector2.right/2).normalized*15,ForceMode2D.Impulse);
 	}
 	
 	public void Jump(){
-		/**DEVELOPMENT**/ 
-		//if (controller.isGrounded && TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)		
-		if( isOnGround() && !RunnerAnimation.Instance.dead){
+//#if !UNITY_EDITOR
+		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)		
+//#endif
+		if( isOnGround() && !RunnerAnimation.Instance.dead)
 			rigidbody2D.AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
-		}
+		
 	}
 	
 }
