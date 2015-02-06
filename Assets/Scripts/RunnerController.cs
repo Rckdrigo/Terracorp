@@ -26,7 +26,7 @@ public class RunnerController : Character2D {
 	
 	void Die(){
 		if( isOnGround())
-			rigidbody2D.AddForce((Vector2.up *3 + Vector2.right/2).normalized*15,ForceMode2D.Impulse);
+			rigidbody2D.AddForce((Vector2.up *3 + Vector2.right/2).normalized*10,ForceMode2D.Impulse);
 	}
 	
 	public void Jump(){
