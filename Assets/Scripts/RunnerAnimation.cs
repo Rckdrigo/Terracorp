@@ -30,13 +30,13 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
-		//if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-		if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
+		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
+			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
-		//if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
+		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
 			if(runner.IsGrounded)
 				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
 					sliding = true;
@@ -91,7 +91,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 			Die();
 		if(Input.GetKeyDown(KeyCode.R))
 			Reset();
-		sliding = Input.GetKey(KeyCode.DownArrow);
+		//sliding = Input.GetKey(KeyCode.DownArrow);
 #endif
 		animator.SetBool("Slide",sliding);
 	}
