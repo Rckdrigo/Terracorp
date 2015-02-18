@@ -56,6 +56,7 @@ public class FBProfileManager : Singleton<FBProfileManager> {
 	void GetFBData(FBResult result){
 		userData = Json.Deserialize(result.Text) as Dictionary<string,object>;
 		username =  (string)userData["name"];
+
 		DataLoadedEvent();
 	}
 	
