@@ -4,6 +4,10 @@ using System.Collections;
 public class RunnerController : Character2D {
 
 	public float jumpSpeed = 10.0F;
+	void OnDrawGizmos(){
+		Gizmos.color = Color.green;
+		Gizmos.DrawRay(transform.position,transform.up*100);
+	}
 	
 	new void Start(){
 		base.Start();
