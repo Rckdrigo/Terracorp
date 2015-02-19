@@ -27,9 +27,12 @@ public class RunnerController : Character2D {
 			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
 		else
 			Physics2D.gravity = new Vector2(0,-9.8f);
-
-		if(isOnGround())
-			transform.up = -Physics2D.gravity;
+		transform.up = -Physics2D.gravity.normalized;
+		if(isOnGround()){
+			
+			rigidbody2D.gravityScale = 0;
+		}else
+			rigidbody2D.gravityScale = 5.1f;
 	}
 	
 	void Restart(){
@@ -42,7 +45,7 @@ public class RunnerController : Character2D {
 	}
 	
 	public void Jump(){
-		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)	
+		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
 			if( isOnGround() && !RunnerAnimation.Instance.dead)
 				rigidbody2D.AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
 		

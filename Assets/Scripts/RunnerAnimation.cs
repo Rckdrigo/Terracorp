@@ -30,15 +30,13 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
-//#if !UNITY_EDITOR
-		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-//#endif
+		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
 			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
 	
 	void Slide(){
-		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3)
+		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x > 2 * Screen.width/3)	
 			if(runner.IsGrounded)
 				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
 					sliding = true;
