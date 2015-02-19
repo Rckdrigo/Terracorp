@@ -85,7 +85,11 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && rigidbody2D.velocity.y <0){
 			Crashing();
 		}
-		 
+
+
+		if(Vector3.Angle(transform.position,Vector3.up) > 30)
+			Die();
+
 #if UNITY_EDITOR
 		if(Input.GetButtonDown("Jump"))
 			Jump();

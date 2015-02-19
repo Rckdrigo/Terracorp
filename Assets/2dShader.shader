@@ -1,6 +1,8 @@
 ﻿Shader "MyShaders/2dShader" {
 	Properties {
-		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_MainTex ("Base (RGB) (A)", 2D) = "white" {}
+		_LavaTex ("Lava (RGB)", 2D) = "white"{}
+		_LavaColor("Lava Color", color) = (1,1,1,1)
 	}
 	SubShader {
 		Tags { "Queue"="Transparent" "RenderType"="Transparent" }
@@ -13,9 +15,9 @@
 	      	#pragma vertex vert
 	      	#pragma fragment frag
 
-	      	float4 _RimColor;
-	     	float _RimPower;
+	      	half4 _LavaColor;
 			sampler2D _MainTex;
+			sampler2D _LavaTex;
 
 			struct vertexInput {
 	          float4 vertex : POSITION;
@@ -39,8 +41,8 @@
 			half4 frag(v2f i) : COLOR{
 				half4 c = tex2D(_MainTex,i.uv);
 				
-				if(c.r > 0.7 && c.g > 0.7 && c.b > 0.7)
-					discard;
+				//if(c.r < 0.3 && c.g < 0.3 && c.b < 0.3)
+				//		c =  tex2D(_LavaTex,i.uv)* _LavaColor;
 				if(c.a < 0.9)
 					discard;
 				
