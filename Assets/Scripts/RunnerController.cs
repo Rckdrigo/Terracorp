@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class RunnerController : Character2D {
 
 	public float jumpSpeed = 10.0F;
 	void OnDrawGizmos(){
-		Gizmos.color = Color.green;
-		Gizmos.DrawRay(transform.position,transform.up*100);
+		if(Vector3.Angle(transform.position,Vector3.up) < 15)
+			Gizmos.color = Color.green;
+		else
+			Gizmos.color = Color.red;
+
+		Gizmos.DrawRay(transform.position,Physics2D.gravity*100);
 	}
 	
 	new void Start(){
@@ -18,6 +22,12 @@ public class RunnerController : Character2D {
 	
 	new void Update() {
 		base.Update();
+
+		print (Vector3.Angle(transform.position,Vector3.up));
+		if(Vector3.Angle(transform.position,Vector3.up) < 15)
+			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
+		else
+			Physics2D.gravity = new Vector2(0,-9.8f);
 
 		if(Input.GetButtonDown("Jump"))
 			Jump ();
