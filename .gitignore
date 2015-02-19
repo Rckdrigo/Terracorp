@@ -6,13 +6,6 @@ Obj/
 UnityGenerated/
 Library/*
 Assets/AssetStoreTools*
-<<<<<<< HEAD
-EditorBuildSettings.asset
-=======
-ProjectSettings.asset
-Assembly-CSharp-vs.csproj
-Assembly-CSharp.csproj
->>>>>>> DevAndroid
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
