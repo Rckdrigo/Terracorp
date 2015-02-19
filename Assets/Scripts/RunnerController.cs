@@ -28,8 +28,8 @@ public class RunnerController : Character2D {
 		else
 			Physics2D.gravity = new Vector2(0,-9.8f);
 
-		if(Input.GetButtonDown("Jump"))
-			Jump ();
+		//if(Input.GetButtonDown("Jump"))
+		//	Jump ();
 	}
 	
 	void Restart(){
@@ -42,9 +42,7 @@ public class RunnerController : Character2D {
 	}
 	
 	public void Jump(){
-#if !UNITY_EDITOR
 		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)	
-#endif
 			if( isOnGround() && !RunnerAnimation.Instance.dead)
 				rigidbody2D.AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
 		

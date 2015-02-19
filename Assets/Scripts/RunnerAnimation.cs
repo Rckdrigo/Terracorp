@@ -30,9 +30,9 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
-#if !UNITY_EDITOR
+//#if !UNITY_EDITOR
 		if (TouchInputListener.Instance.singleTouch.position.y > 2 * Screen.height/3)
-#endif
+//#endif
 			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
