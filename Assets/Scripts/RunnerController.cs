@@ -23,7 +23,6 @@ public class RunnerController : Character2D {
 	new void Update() {
 		base.Update();
 
-		print (Vector3.Angle(transform.position,Vector3.up));
 		if(Vector3.Angle(transform.position,Vector3.up) < 30)
 			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
 		else

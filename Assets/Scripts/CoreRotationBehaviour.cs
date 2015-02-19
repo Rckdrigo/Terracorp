@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CoreRotationBehaviour : MonoBehaviour {
 
-	[Range(10.0f,50.0f)]
+	[Range(10.0f,100.0f)]
 	public float rotSpeed = 10;
 	public float angleTrigger = 30.0f;
 
