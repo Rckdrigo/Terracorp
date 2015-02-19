@@ -7,7 +7,8 @@ UnityGenerated/
 Library/
 Assets/AssetStoreTools*
 ProjectSettings.asset
-EditorBuildSettings.asset
+Assembly-CSharp-vs.csproj
+Assembly-CSharp.csproj
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
