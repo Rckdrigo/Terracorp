@@ -28,8 +28,8 @@ public class RunnerController : Character2D {
 		else
 			Physics2D.gravity = new Vector2(0,-9.8f);
 
-		//if(Input.GetButtonDown("Jump"))
-		//	Jump ();
+		if(isOnGround())
+			transform.up = -Physics2D.gravity;
 	}
 	
 	void Restart(){
