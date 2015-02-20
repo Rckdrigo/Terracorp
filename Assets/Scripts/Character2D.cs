@@ -13,27 +13,28 @@ public abstract class Character2D : MonoBehaviour {
 	protected bool facingRight = true;
 	public LayerMask _groundLayer;
 	protected Vector2 initialPosition;
+	protected SpriteRenderer sprite;
 	
 	[HideInInspector()]
 	public bool IsGrounded;
 	
 	protected void Start(){
 		initialPosition = transform.position;
+		sprite = GetComponent<SpriteRenderer>();
 	}
 	
 	protected void _flipH(){
 		facingRight = !facingRight;
 		Vector2 temp = transform.localScale;
-		transform.localScale = new Vector2(temp.x*-1,temp.y);
+		transform.localScale = new Vector2(temp.x * -1,temp.y);
 	}
 	
 	protected void _flipV(){
 		Vector2 temp = transform.localScale;
-		transform.localScale = new Vector2(temp.x,temp.y*-1);
+		transform.localScale = new Vector2(temp.x,temp.y * -1);
 	}
 	
 	protected void Update (){		
-
 		_resizeBoxCollider();
 		IsGrounded = isOnGround();
 	}
@@ -51,8 +52,9 @@ public abstract class Character2D : MonoBehaviour {
 	
 	protected void _resizeBoxCollider(){
 		BoxCollider2D box = GetComponent<BoxCollider2D>();
-		_width =  renderer.bounds.size.x;
-		_height =  renderer.bounds.size.y;
+		_width = sprite.sprite.bounds.size.x;
+		_height =  sprite.sprite.bounds.size.y;
+		
 		Vector2 size = new Vector2(_width ,_height);
 		box.size = size;
 		box.center = new Vector2(0,_height/2);		

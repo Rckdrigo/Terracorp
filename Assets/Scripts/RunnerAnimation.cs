@@ -85,7 +85,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		}
 
 
-		if(Vector3.Angle(transform.position,Vector3.up) > 30)
+		if(Vector3.Angle(transform.position,Vector3.up) > 45)
 			Die();
 
 #if UNITY_EDITOR
