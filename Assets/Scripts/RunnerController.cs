@@ -5,7 +5,7 @@ public class RunnerController : Character2D {
 
 	public float jumpSpeed = 10.0F;
 	void OnDrawGizmos(){
-		if(Vector3.Angle(transform.position,Vector3.up) < 45)
+		if(Vector3.Angle(transform.position,Vector3.up) < 30)
 			Gizmos.color = Color.green;
 		else
 			Gizmos.color = Color.red;
@@ -23,7 +23,7 @@ public class RunnerController : Character2D {
 	new void Update() {
 		base.Update();
 
-		if(Vector3.Angle(transform.position,Vector3.up) < 45)
+		if(Vector3.Angle(transform.position,Vector3.up) < 30)
 			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
 		else
 			Physics2D.gravity = new Vector2(0,-9.8f);
