@@ -57,7 +57,7 @@ public abstract class Character2D : MonoBehaviour {
 		
 		Vector2 size = new Vector2(_width ,_height);
 		box.size = size;
-		box.center = new Vector2(0,_height/2);		
+		box.offset = new Vector2(0,_height/2);		
 	}
 	#endregion
 }

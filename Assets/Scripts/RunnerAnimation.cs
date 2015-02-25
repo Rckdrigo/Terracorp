@@ -75,12 +75,12 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Update(){
-		animator.SetFloat("VSpeed",rigidbody2D.velocity.y);
+		animator.SetFloat("VSpeed",GetComponent<Rigidbody2D>().velocity.y);
 		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
 			Landing();
 		 }
 		 
-		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && rigidbody2D.velocity.y <0){
+		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && GetComponent<Rigidbody2D>().velocity.y <0){
 			Crashing();
 		}
 

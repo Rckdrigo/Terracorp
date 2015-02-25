@@ -25,11 +25,13 @@ public class RunnerController : Character2D {
 	new void Update() {
 		base.Update();
 		if (Input.GetButtonDown ("Jump"))
-			Jump ();
+			Jump();
 
-		if(Vector3.Angle(transform.position,Vector3.up) < 30)
-			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
-	
+		Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
+		
+		if(Vector3.Angle(transform.position,Vector3.up) > 30)
+			transform.parent = core;
+		
 		transform.up = -Physics2D.gravity.normalized;
 	}
 	
@@ -38,16 +40,15 @@ public class RunnerController : Character2D {
 	}
 	
 	void Die(){
-		if (isOnGround ()) {
-			rigidbody2D.AddForce ((Vector2.up * 3 + Vector2.right / 2).normalized * 10, ForceMode2D.Impulse);
-			transform.parent = core;
-		}
+		if (isOnGround ())
+			GetComponent<Rigidbody2D>().AddForce ((Vector2.up * 3 + Vector2.right / 2).normalized * 10, ForceMode2D.Impulse);
+			
 	}
 	
 	public void Jump(){
 		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
 			if( isOnGround() && !RunnerAnimation.Instance.dead)
-				rigidbody2D.AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
+				GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
 		
 	}
 	
