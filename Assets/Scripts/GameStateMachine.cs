@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameStateMachine : MonoBehaviour {
+public class GameStateMachine : Singleton<GameStateMachine> {
 
-	// Use this for initialization
-	void Start () {
+	public delegate void GameStates();
 	
-	}
+	public GameStates state;
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
