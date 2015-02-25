@@ -3,6 +3,8 @@ using System.Collections;
 
 public class RunnerController : Character2D {
 
+	public Transform core;
+
 	public float jumpSpeed = 10.0F;
 	void OnDrawGizmos(){
 		if(Vector3.Angle(transform.position,Vector3.up) < 30)
@@ -22,17 +24,13 @@ public class RunnerController : Character2D {
 	
 	new void Update() {
 		base.Update();
+		if (Input.GetButtonDown ("Jump"))
+			Jump ();
 
 		if(Vector3.Angle(transform.position,Vector3.up) < 30)
 			Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
-		else
-			Physics2D.gravity = new Vector2(0,-9.8f);
+	
 		transform.up = -Physics2D.gravity.normalized;
-		if(isOnGround()){
-			
-			rigidbody2D.gravityScale = 0;
-		}else
-			rigidbody2D.gravityScale = 5.1f;
 	}
 	
 	void Restart(){
@@ -40,8 +38,10 @@ public class RunnerController : Character2D {
 	}
 	
 	void Die(){
-		if( isOnGround())
-			rigidbody2D.AddForce((Vector2.up *3 + Vector2.right/2).normalized*10,ForceMode2D.Impulse);
+		if (isOnGround ()) {
+			rigidbody2D.AddForce ((Vector2.up * 3 + Vector2.right / 2).normalized * 10, ForceMode2D.Impulse);
+			transform.parent = core;
+		}
 	}
 	
 	public void Jump(){
