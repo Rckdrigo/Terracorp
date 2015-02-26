@@ -7,6 +7,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 //	public event StateMachine Land;
 	public event StateMachine Dead;
 	public event StateMachine Restart;
+	public event StateMachine Crash;
 	
 	[HideInInspector()]
 	public bool dead;
@@ -30,7 +31,9 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Jump () {
+#if !UNITY_EDITOR
 		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
+#endif
 			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
 	}
@@ -72,6 +75,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	void Crashing(){
 		animator.SetTrigger("Land");
 		animator.ResetTrigger("Die");
+		Crash();
 	}
 	
 	void Update(){
@@ -98,5 +102,10 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		//sliding = Input.GetKey(KeyCode.DownArrow);
 #endif
 		animator.SetBool("Slide",sliding);
+	}
+
+	void OnCollisionEnter2D(Collision2D collision){
+		if(collision.gameObject.CompareTag("Damage"))
+			Die ();
 	}
 }

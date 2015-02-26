@@ -43,7 +43,7 @@ public abstract class Character2D : MonoBehaviour {
 	#region INTERNAL_PROCESS
 	
 	protected bool isOnGround(){
-		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.2f, _groundLayer);
+		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.25f, _groundLayer);
 		foreach(Collider2D ground in hits) 
 			if(ground != null) 
 				return true;
@@ -57,7 +57,7 @@ public abstract class Character2D : MonoBehaviour {
 		
 		Vector2 size = new Vector2(_width ,_height);
 		box.size = size;
-		box.offset = new Vector2(0,_height/2);		
+		box.center = new Vector2(0,_height/2);		
 	}
 	#endregion
 }
