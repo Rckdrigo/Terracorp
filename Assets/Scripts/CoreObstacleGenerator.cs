@@ -3,31 +3,33 @@ using System.Collections;
 
 public class CoreObstacleGenerator : MonoBehaviour {
 
-	[Range(0.5f,2f)]
-	public float time = 1f;
-	
 	[System.Serializable]
-	public struct Obstacle{
-		public string name;
-		public float distance;
+	public struct ObstacleLevel{
+		public ObstaclePerLevel level;
 	}
-	
-	public Obstacle[] obstacles;
-
+	public ObstacleLevel[] obstacleLevel;
 
 	// Update is called once per frame
 	void Start () {
-		StartCoroutine(CreateObstacle());
+		for(int i = 0; i < obstacleLevel.Length; i++)
+			StartCoroutine(InitialDelay(obstacleLevel[i].level));
 	}
 
-	IEnumerator CreateObstacle(){
-		int random = Random.Range(0,obstacles.Length);
-		
-		GameObject temp = ObjectPool.Instance.GetGameObjectOfType(obstacles[random].name,true) as GameObject;
-		temp.transform.parent = transform;
-		temp.transform.position = new Vector3(0,obstacles[random].distance, 0);
-		temp.transform.rotation = Quaternion.Euler(new Vector3(0,0,180));
-		yield return new WaitForSeconds(time);
-		StartCoroutine(CreateObstacle());
+	IEnumerator CreateObstacle(ObstaclePerLevel level){
+		if(Random.Range(0,100) < level.probability){
+			int random = Random.Range(0,level.obstacles.Length);
+			GameObject temp = ObjectPool.Instance.GetGameObjectOfType(level.obstacles[random],true) as GameObject;
+
+			temp.transform.parent = transform;
+			temp.transform.position = level.transform.position;
+			temp.transform.rotation = Quaternion.Euler(new Vector3(0,0,180));
+		}
+		yield return new WaitForSeconds(level.time);
+		StartCoroutine(CreateObstacle(level));
+	}
+
+	IEnumerator InitialDelay(ObstaclePerLevel level){
+		yield return new WaitForSeconds(level.delay);
+		StartCoroutine(CreateObstacle(level));
 	}
 }
