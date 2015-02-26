@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ObstaclePerLevel.cs" />
+     <Compile Include="Assets\RotateColumn.cs" />
      <Compile Include="Assets\Scripts\Character2D.cs" />
      <Compile Include="Assets\Scripts\CoreObstacleGenerator.cs" />
      <Compile Include="Assets\Scripts\CoreRotationBehaviour.cs" />
