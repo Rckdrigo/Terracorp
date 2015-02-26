@@ -8,7 +8,6 @@ public abstract class Character2D : MonoBehaviour {
 	#region INSIDE_INHERITED_MEMBERS
 	protected float _width;
 	protected float _height;
-	protected bool isGrounded;
 	protected Vector2 _midFrontVector;
 	protected bool facingRight = true;
 	public LayerMask _groundLayer;
@@ -42,9 +41,9 @@ public abstract class Character2D : MonoBehaviour {
 	#endregion 
 	#region INTERNAL_PROCESS
 	
-	protected bool isOnGround(){
-		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.25f, _groundLayer);
-		foreach(Collider2D ground in hits) 
+	public bool isOnGround(){
+		Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, _height * 0.15f, _groundLayer);
+		foreach(Collider2D ground in hits)
 			if(ground != null) 
 				return true;
 		return false;

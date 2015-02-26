@@ -13,6 +13,8 @@ public class RunnerController : Character2D {
 			Gizmos.color = Color.red;
 
 		Gizmos.DrawRay(transform.position,Physics2D.gravity*100);
+		Gizmos.DrawWireSphere(transform.position,_height*0.15f);
+
 	}
 	
 	new void Start(){
@@ -29,7 +31,6 @@ public class RunnerController : Character2D {
 			Jump();
 
 		Physics2D.gravity = new Vector2(transform.position.x,transform.position.y).normalized * -9.81f;
-
 		transform.up = -Physics2D.gravity.normalized;
 	}
 	

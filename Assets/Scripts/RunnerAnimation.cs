@@ -40,7 +40,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	
 	void Slide(){
 		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x > 2 * Screen.width/3)	
-			if(runner.IsGrounded)
+			if(runner.isOnGround())
 				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
 					sliding = true;
 	}
@@ -80,15 +80,15 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	
 	void Update(){
 		animator.SetFloat("VSpeed",GetComponent<Rigidbody2D>().velocity.y);
-		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
+		if(runner.isOnGround() && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
 			Landing();
 		 }
 		 
-		if(runner.IsGrounded && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && GetComponent<Rigidbody2D>().velocity.y <0){
+		if(runner.isOnGround() && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie")){
 			Crashing();
 		}
 
-
+		print (runner.isOnGround());
 		if(Vector3.Angle(transform.position,Vector3.up) > 30)
 			Die();
 
