@@ -10,7 +10,6 @@ public class ObstacleBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print (Vector3.up);
 		if(Vector3.Angle(transform.up,Vector3.right) > 90 && Vector3.Angle(transform.up,Vector3.right) < 135 && transform.up.y < 0)
 			ObjectPool.Instance.PoolGameObject(gameObject);
 	}

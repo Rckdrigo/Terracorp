@@ -4,6 +4,7 @@ using System.Collections;
 public class RunnerController : Character2D {
 
 	public Transform core;
+	public static float coreDistance;
 
 	public float jumpSpeed = 10.0F;
 	void OnDrawGizmos(){
@@ -15,6 +16,7 @@ public class RunnerController : Character2D {
 		Gizmos.DrawRay(transform.position,Physics2D.gravity*100);
 		Gizmos.DrawWireSphere(transform.position,_height*0.15f);
 
+		coreDistance = Vector2.Distance(transform.position,core.position);
 	}
 	
 	new void Start(){
@@ -27,6 +29,7 @@ public class RunnerController : Character2D {
 	
 	new void Update() {
 		base.Update();
+		coreDistance = Vector2.Distance(transform.position,core.position);
 		if (Input.GetButtonDown ("Jump"))
 			Jump();
 

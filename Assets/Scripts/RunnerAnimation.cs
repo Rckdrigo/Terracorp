@@ -88,7 +88,6 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 			Crashing();
 		}
 
-		print (runner.isOnGround());
 		if(Vector3.Angle(transform.position,Vector3.up) > 30)
 			Die();
 
