@@ -4,7 +4,7 @@ using System.Collections;
 public class RunnerAnimation : Singleton<RunnerAnimation> {
 
 	public delegate void StateMachine();
-//	public event StateMachine Land;
+	public event StateMachine Land;
 	public event StateMachine Dead;
 	public event StateMachine Restart;
 	public event StateMachine Crash;
@@ -58,7 +58,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		}
 	}
 	
-	void Reset(){
+	public void Reset(){
 		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
 			Restart();
 			animator.SetTrigger("Reset");
@@ -70,6 +70,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	void Landing(){
 		animator.SetTrigger("Land");
 		animator.ResetTrigger("Jump");
+		Land();
 	}
 	
 	void Crashing(){

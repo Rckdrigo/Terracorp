@@ -8,11 +8,24 @@ public class CoreObstacleGenerator : MonoBehaviour {
 		public ObstaclePerLevel level;
 	}
 	public ObstacleLevel[] obstacleLevel;
+	bool isGenerating;
 
-	// Update is called once per frame
-	void Start () {
-		for(int i = 0; i < obstacleLevel.Length; i++)
-			StartCoroutine(InitialDelay(obstacleLevel[i].level));
+
+	void Start(){
+		GameStateMachine.Instance.Reset += StopCreating;
+	}
+	
+	void StopCreating(){
+		StopAllCoroutines();
+		isGenerating = false;
+	}
+	
+	public void StartGenerating(){
+		if(!isGenerating){
+			for(int i = 0; i < obstacleLevel.Length; i++)
+				StartCoroutine(InitialDelay(obstacleLevel[i].level));
+			isGenerating = true;
+		}
 	}
 
 	IEnumerator CreateObstacle(ObstaclePerLevel level){

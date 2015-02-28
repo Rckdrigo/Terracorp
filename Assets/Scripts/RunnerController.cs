@@ -5,8 +5,10 @@ public class RunnerController : Character2D {
 
 	public Transform core;
 	public static float coreDistance;
+	
+	Vector2 initialPos;
 
-	public float jumpSpeed = 10.0F;
+	public float jumpSpeed = 15.0F;
 	void OnDrawGizmos(){
 		if(Vector3.Angle(transform.position,Vector3.up) < 30)
 			Gizmos.color = Color.green;
@@ -25,6 +27,13 @@ public class RunnerController : Character2D {
 		RunnerAnimation.Instance.Dead += Die;
 		RunnerAnimation.Instance.Restart += Restart;
 		RunnerAnimation.Instance.Crash += Crash;
+		RunnerAnimation.Instance.Land += Land;
+		
+		initialPos = transform.position;
+	}
+	
+	public void StartGame(){
+		rigidbody2D.gravityScale = 6;
 	}
 	
 	new void Update() {
@@ -48,6 +57,17 @@ public class RunnerController : Character2D {
 
 	void Crash(){
 		transform.parent = core;
+	}
+
+	void Land(){
+		rigidbody2D.velocity = Vector2.zero;
+	}
+
+	public void Reset(){
+		transform.position = initialPos;
+		rigidbody2D.gravityScale = 0;
+		transform.parent = null;
+		transform.rotation = Quaternion.identity;
 	}
 
 	public void Jump(){
