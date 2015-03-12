@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: ebcda09eeff68be41af63eab83c320f1
+guid: 05d419e5773c70648afcb4f98179da29
+timeCreated: 1426134225
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pilar_01_0
-    21300002: pilar_01_1
-    21300004: pilar_01_2
-    21300006: pilar_01_3
+    21300000: fire_ball02_0
+    21300002: fire_ball02_1
+    21300004: fire_ball02_2
+    21300006: fire_ball02_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -24,9 +26,12 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: -3
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -34,6 +39,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -44,52 +50,50 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: iPhone
-    maxTextureSize: 1024
-    textureFormat: -3
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: pilar_01_0
+    - name: fire_ball02_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 3
+        y: 1
+        width: 161
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_ball02_1
+      rect:
+        serializedVersion: 2
+        x: 168
         y: 0
-        width: 186
-        height: 265
+        width: 169
+        height: 210
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pilar_01_1
+    - name: fire_ball02_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 77
-        width: 184
-        height: 186
+        x: 350
+        y: 1
+        width: 155
+        height: 254
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pilar_01_2
+    - name: fire_ball02_3
       rect:
         serializedVersion: 2
-        x: 386
-        y: 78
-        width: 185
-        height: 185
+        x: 516
+        y: 1
+        width: 162
+        height: 257
       alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pilar_01_3
-      rect:
-        serializedVersion: 2
-        x: 573
-        y: 32
-        width: 183
-        height: 231
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

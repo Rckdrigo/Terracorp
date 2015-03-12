@@ -33,7 +33,7 @@ public class RunnerController : Character2D {
 	}
 	
 	public void StartGame(){
-		rigidbody2D.gravityScale = 6;
+		GetComponent<Rigidbody2D>().gravityScale = 6;
 	}
 	
 	new void Update() {
@@ -52,7 +52,7 @@ public class RunnerController : Character2D {
 	
 	void Die(){
 		if(isOnGround())
-			rigidbody2D.AddForce((Vector2.up *2 + Vector2.right/2).normalized,ForceMode2D.Impulse);
+			GetComponent<Rigidbody2D>().AddForce((Vector2.up *2 + Vector2.right/2).normalized,ForceMode2D.Impulse);
 	}
 
 	void Crash(){
@@ -60,12 +60,12 @@ public class RunnerController : Character2D {
 	}
 
 	void Land(){
-		rigidbody2D.velocity = Vector2.zero;
+		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 	}
 
 	public void Reset(){
 		transform.position = initialPos;
-		rigidbody2D.gravityScale = 0;
+		GetComponent<Rigidbody2D>().gravityScale = 0;
 		transform.parent = null;
 		transform.rotation = Quaternion.identity;
 	}
