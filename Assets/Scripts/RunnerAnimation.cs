@@ -23,7 +23,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		runner = GetComponent<RunnerController>();
 		
 		TouchInputListener.Instance.OneTouchEnter += Jump;
-		TouchInputListener.Instance.OneTouch += Slide;
+		//TouchInputListener.Instance.OneTouch += Slide;
 		TouchInputListener.Instance.OneTouchQuit += StandUp;
 		
 		sliding = false;
@@ -32,7 +32,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	
 	void Jump () {
 #if !UNITY_EDITOR
-		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
+		//if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
 #endif
 			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 				animator.SetTrigger("Jump");
