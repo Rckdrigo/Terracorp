@@ -10,7 +10,7 @@ public class RunnerController : Character2D {
 
 	public float jumpSpeed = 15.0F;
 	void OnDrawGizmos(){
-		if(Vector3.Angle(transform.position,Vector3.up) < 30)
+		if(Vector3.Angle(transform.position,Vector3.up) < 15)
 			Gizmos.color = Color.green;
 		else
 			Gizmos.color = Color.red;
@@ -71,12 +71,8 @@ public class RunnerController : Character2D {
 	}
 
 	public void Jump(){
-#if !UNITY_EDITOR
-		//if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
-#endif
-			if( isOnGround() && !RunnerAnimation.Instance.dead)
-				GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
-		
+		if(isOnGround() && !RunnerAnimation.Instance.dead)
+			GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
 	}
 	
 }

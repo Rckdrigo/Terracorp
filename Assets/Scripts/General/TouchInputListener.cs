@@ -12,7 +12,6 @@ public class TouchInputListener : Singleton<TouchInputListener> {
 	
 	bool isTouching = false;
 
-	// Update is called once per frame
 	void Update () {
 		if(Input.touchCount>0 && !isTouching){
 			singleTouch = Input.GetTouch(0);
