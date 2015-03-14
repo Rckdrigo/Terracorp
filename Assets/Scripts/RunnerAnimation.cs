@@ -24,21 +24,18 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		
 		TouchInputListener.Instance.OneTouchEnter += Jump;
 		//TouchInputListener.Instance.OneTouch += Slide;
-		TouchInputListener.Instance.OneTouchQuit += StandUp;
+		//TouchInputListener.Instance.OneTouchQuit += StandUp;
 		
 		sliding = false;
 		dead = false;
 	}
 	
 	void Jump () {
-#if !UNITY_EDITOR
-		//if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x < Screen.width/3)	
-#endif
-			if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
-				animator.SetTrigger("Jump");
+		if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
+			animator.SetTrigger("Jump");
 	}
 	
-	void Slide(){
+	/*void Slide(){
 		if (TouchInputListener.Instance.singleTouch.position.y < Screen.height/3 && TouchInputListener.Instance.singleTouch.position.x > 2 * Screen.width/3)	
 			if(runner.isOnGround())
 				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeSlide"))
@@ -48,7 +45,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	void StandUp(){
 		if(sliding)
 			sliding = false;
-	}
+	}*/
 	
 	void Die(){
 		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie") && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
