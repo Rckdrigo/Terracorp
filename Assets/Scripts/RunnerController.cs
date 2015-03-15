@@ -73,6 +73,7 @@ public class RunnerController : Character2D {
 	public void Jump(){
 		if(isOnGround() && !RunnerAnimation.Instance.dead)
 			GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed,ForceMode2D.Impulse);
+
 	}
 	
 }

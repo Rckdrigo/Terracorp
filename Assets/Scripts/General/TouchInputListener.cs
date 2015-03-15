@@ -9,23 +9,35 @@ public class TouchInputListener : Singleton<TouchInputListener> {
 	public event TouchListener OneTouch;
 	
 	public Touch singleTouch;
-	
-	bool isTouching = false;
 
+	// Update is called once per frame
 	void Update () {
-		if(Input.touchCount>0 && !isTouching){
+		if(Input.touchCount>0){
+			
+			print ("Is Touching: " + Input.GetTouch(0).phase);
 			singleTouch = Input.GetTouch(0);
-			isTouching = true;
-			OneTouchEnter();
-		}
+			switch(Input.GetTouch(0).phase){
+				case TouchPhase.Began:
+				OneTouchEnter();
+				break;
+				
+				case TouchPhase.Ended:
+				OneTouchQuit();
+				break;
+				
+				case TouchPhase.Moved:
+				OneTouch();
+				break;
+				
+			    case TouchPhase.Stationary:
+				OneTouch();
+				break;
+				
+				default:
+				break;
+			}
 		
-		if(isTouching){
-			OneTouch();
-		}
-		
-		if(Input.touchCount == 0 && isTouching){
-			isTouching = false;
-			OneTouchQuit();
+			
 		}
 	}
 }

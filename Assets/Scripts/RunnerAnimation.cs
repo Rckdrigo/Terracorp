@@ -24,8 +24,9 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		
 		TouchInputListener.Instance.OneTouchEnter += Jump;
 		//TouchInputListener.Instance.OneTouch += Slide;
-		//TouchInputListener.Instance.OneTouchQuit += StandUp;	
-		//sliding = false;
+		//TouchInputListener.Instance.OneTouchQuit += StandUp;
+		
+		sliding = false;
 		dead = false;
 	}
 	
