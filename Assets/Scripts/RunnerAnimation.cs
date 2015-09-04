@@ -6,7 +6,6 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	public delegate void StateMachine();
 	public event StateMachine Land;
 	public event StateMachine Dead;
-	public event StateMachine Restart;
 	public event StateMachine Crash;
 	
 	[HideInInspector()]
@@ -22,15 +21,13 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		animator = GetComponent<Animator>();
 		runner = GetComponent<RunnerController>();
 		
-		TouchInputListener.Instance.OneTouchEnter += Jump;
-		//TouchInputListener.Instance.OneTouch += Slide;
-		//TouchInputListener.Instance.OneTouchQuit += StandUp;
-		
 		sliding = false;
 		dead = false;
+
+		GameStateMachine.Instance.Reset += Reset;
 	}
 	
-	void Jump () {
+	public void Jump () {
 		if(runner.IsGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("DudeJump"))
 			animator.SetTrigger("Jump");
 	}
@@ -56,12 +53,11 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	public void Reset(){
-		if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
-			Restart();
+		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("DudeCrash")){
 			animator.SetTrigger("Reset");
 			animator.ResetTrigger("Jump");
 			dead = false;
-		}
+		//}
 	}
 	
 	void Landing(){
@@ -71,6 +67,7 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 	}
 	
 	void Crashing(){
+		print ("Chocando");
 		animator.SetTrigger("Land");
 		animator.ResetTrigger("Die");
 		Crash();
@@ -81,21 +78,11 @@ public class RunnerAnimation : Singleton<RunnerAnimation> {
 		if(runner.isOnGround() && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeFall")){
 			Landing();
 		 }
-		 
-		if(runner.isOnGround() && animator.GetCurrentAnimatorStateInfo(0).IsName("DudeDie")){
-			Crashing();
-		}
 
 		if(Vector3.Angle(transform.position,Vector3.up) > 15)
 			Die();
 
 #if UNITY_EDITOR
-		if(Input.GetButtonDown("Jump"))
-			Jump();
-		if(Input.GetKeyDown(KeyCode.D))
-			Die();
-		if(Input.GetKeyDown(KeyCode.R))
-			Reset();
 		//sliding = Input.GetKey(KeyCode.DownArrow);
 #endif
 		//animator.SetBool("Slide",sliding);

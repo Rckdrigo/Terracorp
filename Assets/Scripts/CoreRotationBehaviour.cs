@@ -5,7 +5,6 @@ public class CoreRotationBehaviour : MonoBehaviour {
 
 	[Range(10.0f,100.0f)]
 	public float rotSpeed = 10;
-	public float angleTrigger = 30.0f;
 	
 	bool onPlay;
 
@@ -22,12 +21,14 @@ public class CoreRotationBehaviour : MonoBehaviour {
 	
 	void Reset(){
 		onPlay = false;
+		GetComponent<CoreObstacleGenerator>().StopCreating();
 		RunnerAnimation.Instance.Land += FirstLand;
 	}
 	
 	void FirstLand(){
 		onPlay = true;
 		RunnerAnimation.Instance.Land -= FirstLand;
+		GetComponent<CoreObstacleGenerator>().StartGenerating();
 	}
 	
 	// Update is called once per frame
